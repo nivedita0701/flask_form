@@ -26,7 +26,7 @@ def form():
     form = myForm()
     if request.method == "POST":
         db.db.collection.insert_one({"message": form.message.data})
-        return '<h1> The message is : {} '.format(form.message.data)
+        return '<h1> The message is : {} '.format(request.form['message'])
     else:
         return render_template("form.html", form=form)
 
