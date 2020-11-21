@@ -1,6 +1,6 @@
 from wtforms import Form
-from wtforms import StringField, validators
+from wtforms import TextField, validators
 from wtforms.validators import DataRequired, Regexp
 
 class myForm(Form):
-    message = StringField('write a message')
+    message = TextField('write a message')
