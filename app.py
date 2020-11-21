@@ -24,7 +24,7 @@ def flask_mongodb_atlas():
 @app.route('/form', methods=['GET','POST'])
 def display():
     form = myForm()
-    if form.validate_on_submit():
+    if form.validate == True:
         db.db.collection.insert_one({"message": form.message.data})
         return '<h1> The message is: {} : '.format(form.message.data)
     return render_template(form.html, form=form)
