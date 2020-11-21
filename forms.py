@@ -1,5 +1,6 @@
-from wtforms import Form, StringField, validators
+from flask_wtf import FlaskForm
+from wtforms, StringField, validators
 from wtforms.validators import DataRequired, Regexp
 
-class myForm(Form):
+class myForm(FlaskForm):
     message = StringField('write a message')
