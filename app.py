@@ -1,4 +1,4 @@
-from flask import Flask,render_template, url_for
+from flask import Flask,render_template, url_for, request
 from flask_ngrok import run_with_ngrok
 import db
 from forms import myForm
@@ -24,10 +24,11 @@ def flask_mongodb_atlas():
 @app.route('/form', methods=['GET','POST'])
 def form():
     form = myForm()
-    if form.validate == True:
+    if request.method == "POST":
         db.db.collection.insert_one({"message": form.message.data})
         return '<h1> The message is: {} : '.format(form.message.data)
-    return render_template("form.html", form=form)
+    else:
+        return render_template("form.html", form=form)
 
 if __name__ == '__main__':
     app.run()
