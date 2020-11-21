@@ -10,7 +10,7 @@
         <h2>Write review</h2>
         <form method="POST" action="{{ url_for('form') }}">
           {{ form.message.label }} 
-          {{form.message}}
+          {{ form.message }}
           <input type="submit" value="Submit">
         </form>
     </div>
