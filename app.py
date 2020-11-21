@@ -22,7 +22,7 @@ def flask_mongodb_atlas():
 #     return "Connected to the data base!"
 
 @app.route('/form', methods=['GET','POST'])
-def display():
+def form():
     form = myForm()
     if form.validate == True:
         db.db.collection.insert_one({"message": form.message.data})
