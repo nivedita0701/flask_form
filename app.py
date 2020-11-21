@@ -27,7 +27,7 @@ def display():
     if form.validate == True:
         db.db.collection.insert_one({"message": form.message.data})
         return '<h1> The message is: {} : '.format(form.message.data)
-    return render_template(form.html, form=form)
+    return render_template("form.html", form=form)
 
 if __name__ == '__main__':
     app.run()
