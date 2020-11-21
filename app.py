@@ -4,4 +4,4 @@ app = Flask(__name__)
 def flask_mongodb_atlas():
     return "flask mongodb atlas!"
 if __name__ == '__main__':
-    app.run(port=8000)
+    app.run(port=5000)
