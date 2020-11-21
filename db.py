@@ -1,10 +1,9 @@
-import pymongo
-from bson.json_util import dumps
-import json
+from flask import Flask
+from flask_pymongo import pymongo
+from app import app
 
-mongo = pymongo.MongoClient('mongodb+srv://nivedita:Hello123!@cluster0.mjent.mongodb.net/mydatabase?retryWrites=true&w=majority', maxPoolSize=50, connect=False)
+CONNECTION_STRING = 'mongodb+srv://nivedita:Hello123!@cluster0.mjent.mongodb.net/mydatabase?retryWrites=true&w=majority'
 
-db = pymongo.database.Database(mongo, 'mydatabase')
-col = pymongo.collection.Collection(db, 'mycollection')
-
-col_results = json.loads(dumps(col.find().limit(5).sort("time", -1)))
+client = pymongo.MongoClient(CONNECTION_STRING)
+db = client.get_database('mydatabase')
+user_collection = pymongo.collection.Collection(db, 'mycollection')

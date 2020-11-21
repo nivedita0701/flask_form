@@ -1,15 +1,17 @@
-from flask import Flask, render_template, Markup, request, redirect
-from config import col, col_results
-import requests
-from form import myForm
-from flask_static_compress import FlaskStaticCompress
-from currenttime import yourtime, prettytime
-import logging
+from flask import Flask
+import db
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET', 'POST', 'OPTIONS'])
-def home():
-    """Landing page."""
-    recent_searches = list(col_results)
-    return render_template('contact.html', form=myForm(), recents=recent_searches)
+@app.route('/')
+def flask_mongodb_atlas():
+    return "flask mongodb atlas!"
+    if __name__ == '__main__':
+        app.run(port=8000)
+
+
+#test to insert data to the data base
+@app.route("/test")
+def test():
+    db.db.collection.insert_one({"name": "John"})
+    return "Connected to the data base!"
