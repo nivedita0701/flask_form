@@ -5,6 +5,7 @@ from forms import myForm
 from wtforms import validators
 
 app = Flask(__name__)
+app.config['SECRET KEY'] = 'Thisissecret!'
 run_with_ngrok(app)
 
 @app.route('/')
